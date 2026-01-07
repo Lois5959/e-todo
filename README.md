@@ -1,73 +1,48 @@
-# React + TypeScript + Vite
+# E-Todo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+E-Todo est une application web de gestion de tâches (todo list) fullstack.  
+Elle permet d'ajouter, consulter et supprimer des tâches, avec une base de données MySQL et une interface frontend moderne.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies utilisées
 
-## React Compiler
+- **Backend :** Node.js, Express
+- **Base de données :** MySQL (Docker)
+- **Frontend :** Vite, JavaScript
+- **Gestion des dépendances :** npm
+- **Outils :** Docker, dotenv, PhpMyAdmin
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Fonctionnalités
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Ajouter de nouvelles tâches
+- Marquer des tâches comme terminées
+- Supprimer des tâches
+- Stockage persistant des données avec MySQL
+- Interface web simple et réactive
+- Administration facile via PhpMyAdmin
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Installation complète
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Installer Docker et Docker Compose:
+docker --version
+docker compose version
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Lancer la base de données et le backend avec Docker:
+docker compose up --build
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Installer et lancer le frontend:
+cd frontend
+npm install
+npm run dev
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+### 1️⃣ Cloner le projet
+```bash
+git clone <URL_DE_TON_REPO>
+cd e-todo
